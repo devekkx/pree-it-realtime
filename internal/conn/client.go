@@ -94,7 +94,7 @@ func (c *Client) WritePump() {
 	}
 }
 
-// ReadPump reads messages from the WebSocket (client → server events).
+// ReadPump reads messages from the WebSocket (client - server events).
 func (c *Client) ReadPump(onMessage func(client *Client, msgType string, payload json.RawMessage)) {
 	defer c.cancel()
 
