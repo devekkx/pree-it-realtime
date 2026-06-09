@@ -47,7 +47,7 @@ func (t *Tracker) SetOffline(ctx context.Context, userID uuid.UUID) error {
 	return t.rdb.Del(ctx, key).Err()
 }
 
-// Heartbeat refreshes the TTL — called on every ping/pong cycle.
+// Heartbeat refreshes the TTL - called on every ping/pong cycle.
 func (t *Tracker) Heartbeat(ctx context.Context, userID uuid.UUID) error {
 	key := presencePrefix + userID.String()
 	return t.rdb.Expire(ctx, key, presenceTTL).Err()
