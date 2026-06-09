@@ -96,7 +96,7 @@ func (h *WSHandler) HandleConnect(c *gin.Context) {
 	)
 }
 
-// onClientMessage handles client → server events (typing indicators, etc.)
+// onClientMessage handles client > server events (typing indicators, etc.)
 func (h *WSHandler) onClientMessage(client *conn.Client, msgType string, payload json.RawMessage) {
 	_, span := tracer.Start(client.Context(), "ws.onClientMessage")
 	defer span.End()
